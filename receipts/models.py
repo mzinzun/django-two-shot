@@ -3,11 +3,12 @@ from django.db import models
 
 
 # Create your models here.
-class ExpenseCategory(models.Model):
-    name = models.CharField(max_length=50)
+class Account(models.Model):
+    name = models.CharField(max_length=100)
+    number = models.CharField(max_length=20)
     owner = models.ForeignKey(
         settings.AUTH_USER_MODEL,
-        related_name="categories",
+        related_name="accounts",
         on_delete=models.CASCADE,
     )
 
@@ -15,12 +16,11 @@ class ExpenseCategory(models.Model):
         return self.name
 
 
-class Account(models.Model):
-    name = models.CharField(max_length=100)
-    number = models.CharField(max_length=20)
+class ExpenseCategory(models.Model):
+    name = models.CharField(max_length=50)
     owner = models.ForeignKey(
         settings.AUTH_USER_MODEL,
-        related_name="accounts",
+        related_name="categories",
         on_delete=models.CASCADE,
     )
 
