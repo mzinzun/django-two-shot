@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title%}List of Categories{% endblock title%}
+{% block content %}
+<main>
+    <div>
+        <h1>Category View</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Number of Receipts</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td>{{item.name}}</td>
+                    <td>{{item.receipts.all|length}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</main>
+{% endblock content %}

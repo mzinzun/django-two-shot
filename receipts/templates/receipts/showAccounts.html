@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title%}Account View{% endblock title%}
+{% block content %}
+<main>
+    <div>
+        <h1>Account View</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Number</th>
+                    <th>Number of receipts</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td>{{item.name}}</td>
+                    <td>{{ item.number }}</td>
+                    <td>{{ item.receipts.all|length }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</main>
+{% endblock content %}
