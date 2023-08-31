@@ -64,6 +64,7 @@ def account_list(request):
     return render(request, "accounts/showAccounts.html", context)
 
 
+@login_required
 def create_account(request):
     if request.method == "POST":
         form = CreateAccount(request.POST)
